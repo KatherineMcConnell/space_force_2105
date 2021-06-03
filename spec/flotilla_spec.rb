@@ -26,25 +26,25 @@ RSpec.describe Flotilla do
   end
 
   it 'can add ships to ship list' do
-    @seventh_flotilla.add_ship(daedalus)
+    @seventh_flotilla.add_ship(@daedalus)
 
     expect(@seventh_flotilla.ships).to eq([@daedalus])
   end
 
   it 'can add and list personnel' do
-    @seventh_flotilla.add_personnel(kathy)
-    @seventh_flotilla.add_personnel(polly)
-    @seventh_flotilla.add_personnel(rover)
-    @seventh_flotilla.add_personnel(sampson)
+    @seventh_flotilla.add_personnel(@kathy)
+    @seventh_flotilla.add_personnel(@polly)
+    @seventh_flotilla.add_personnel(@rover)
+    @seventh_flotilla.add_personnel(@sampson)
 
     expect(@seventh_flotilla.personnel).to eq([@kathy,@polly, @rover, @sampson])
   end
 
   it 'can reccommend personnel' do
-    @seventh_flotilla.add_personnel(kathy)
-    @seventh_flotilla.add_personnel(polly)
-    @seventh_flotilla.add_personnel(rover)
-    @seventh_flotilla.add_personnel(sampson)
+    @seventh_flotilla.add_personnel(@kathy)
+    @seventh_flotilla.add_personnel(@polly)
+    @seventh_flotilla.add_personnel(@rover)
+    @seventh_flotilla.add_personnel(@sampson)
 
     @kathy.add_specialty(:astrophysics)
     @kathy.add_specialty(:quantum_mechanics)
@@ -55,14 +55,14 @@ RSpec.describe Flotilla do
     @sampson.add_specialty(:astrophysics)
     @sampson.add_specialty(:quantum_mechanics)
 
-    expect(@seventh_flotilla.recommend_personnel(daedalus)).to eq([@kathy, @sampson])
+    expect(@seventh_flotilla.recommend_personnel(@daedalus)).to eq([@kathy, @sampson])
   end
 
   it 'can reccommend personnel per ship requirements' do
-    @seventh_flotilla.add_personnel(kathy)
-    @seventh_flotilla.add_personnel(polly)
-    @seventh_flotilla.add_personnel(rover)
-    @seventh_flotilla.add_personnel(sampson)
+    @seventh_flotilla.add_personnel(@kathy)
+    @seventh_flotilla.add_personnel(@polly)
+    @seventh_flotilla.add_personnel(@rover)
+    @seventh_flotilla.add_personnel(@sampson)
 
     @kathy.add_specialty(:astrophysics)
     @kathy.add_specialty(:quantum_mechanics)
@@ -76,7 +76,7 @@ RSpec.describe Flotilla do
     @odyssey.add_requirement({operations: 6})
     @odyssey.add_requirement({maintenance: 3})
 
-    expect(@seventh_flotilla.recommend_personnel(odyssey)).to eq([@polly])
+    expect(@seventh_flotilla.recommend_personnel(@odyssey)).to eq([@polly])
     #A person matches the requirements if they have a specialty that matches
     # a requirement and experience equal to or greater than the requirement)
   end
