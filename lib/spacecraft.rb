@@ -8,7 +8,7 @@ class Spacecraft
     @requirements = []
   end
 
-  def add_requirement(spec_and_num)
-    @requirements << spec_and_num
+  def add_requirement(spec_and_yrs_exp)
+    @requirements << spec_and_yrs_exp
   end
 end
