@@ -24,14 +24,4 @@ RSpec.describe Person do
 
     expect(@kathy.specialties).to eq([:astrophysics, :quantum_mechanics])
   end
-
-  it 'make a specialties_and_yrs_exp key;value list' do
-    @kathy.add_specialty(:astrophysics)
-    @kathy.add_specialty(:quantum_mechanics)
-
-    result = {:astrophysics => 10,
-              :quantum_mechanics => 10}
-
-    expect(@kathy.specialties_and_yrs_exp).to eq(result)
-  end
 end
